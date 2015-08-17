@@ -11,7 +11,6 @@ namespace GuessGame
 	{
 		static void Main(string[] args)
 		{
-			
 			Random random = new Random();
 			int randomNumber = random.Next(100, 999);
 			int tries = 0;
@@ -24,6 +23,18 @@ namespace GuessGame
 			List<int> HiT = new List<int>();
 			
 			bool exit = false;
+
+			Console.WriteLine("Welcome to the Guessing Game.");
+			Console.WriteLine(" ");
+			Console.WriteLine("You will be prompted to guess a 3 digit number");
+			Console.WriteLine(" ");
+			Console.WriteLine("If the numbers in your guess do not match in any order, it will be put in the 'Not Close' catagory");
+			Console.WriteLine("If at least one number in your guess matches but not in the right place, it will be put in the 'Close' catagory");
+			Console.WriteLine("If at least one number in your guess matches in the right place, it will be put in the 'Hang in there' catagory");
+			Console.WriteLine(" ");
+			Console.WriteLine("Press any Key to continue. ");
+			Console.WriteLine(" ");
+			Console.ReadKey();
 
 			while (exit == false)
 			{
@@ -56,6 +67,14 @@ namespace GuessGame
 				Console.WriteLine("What is your guess??");
 				int Guesses = int.Parse(Console.ReadLine());
 				Console.WriteLine("");
+
+				while (Guesses < 100)
+				{
+					Console.WriteLine("Not a Valid choice, Try again.");
+					Console.WriteLine(" ");
+					Console.WriteLine("What is your guess??");
+					Guesses = int.Parse(Console.ReadLine());
+				}
 
 				while (Guesses > 999)
 				{
